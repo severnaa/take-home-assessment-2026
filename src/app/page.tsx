@@ -1,4 +1,4 @@
-const LOCAL_API = 'http://localhost:3000/api/sample_api'
+const LOCAL_API = 'http://localhost:3000/api/state_data'
 
 export default async function Page() {
   const response = await fetch(LOCAL_API);

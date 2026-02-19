@@ -11,17 +11,20 @@ const port = 5432;
 const newDatabase = "state_registration_deadlines";
 
 // Connect to the default 'postgres' database
-const client = new Client({
-    user,
-    host,
-    database: "postgres",
-    password,
-    port,
-});
+
 
 async function createDatabase() {
+    const client = new Client({
+        user,
+        host,
+        database: "postgres",
+        password,
+        port,
+    });
     try {
+        console.log("Starting proccess")
         await client.connect();
+        console.log("Got here")
         await client.query(`CREATE DATABASE ${newDatabase};`);
         console.log(`Database "${newDatabase}" created successfully.`);
     } catch (err) {
