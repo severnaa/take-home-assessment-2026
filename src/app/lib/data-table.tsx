@@ -3,7 +3,7 @@
 import { useReactTable, getCoreRowModel, flexRender, getFilteredRowModel, getSortedRowModel, ColumnDef } from '@tanstack/react-table'
 import { useState } from 'react'
 
-const columns: ColumnDef<{[x: string]: {};}, any>[] = [
+const COLUMNS: ColumnDef<{[x: string]: {};}, any>[] = [
   { accessorKey: 'State', header: 'State', sortingFn: 'alphanumeric' },
   { accessorKey: 'DeadlineInPerson', header: 'DeadlineInPerson', sortingFn: 'datetime' },
   { accessorKey: 'DeadlineByMail', header: 'DeadlineByMail', sortingFn: 'datetime' },
@@ -11,13 +11,13 @@ const columns: ColumnDef<{[x: string]: {};}, any>[] = [
   { accessorKey: 'ElectionDayRegistration', header: 'ElectionDayRegistration', sortingFn: 'alphanumeric' },
   { accessorKey: 'OnlineRegistrationLink', header: 'OnlineRegistrationLink', sortingFn: 'alphanumeric' },
   { accessorKey: 'Description', header: 'Description', sortingFn: 'alphanumeric' },
-]
+];
 
 export default function DataTable({data}: {data: any}) {
   const [globalFilter, setGlobalFilter] = useState<any>([])
   const table = useReactTable({ 
     data, 
-    columns, 
+    columns: COLUMNS, 
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),

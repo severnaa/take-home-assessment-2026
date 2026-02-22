@@ -7,8 +7,8 @@ const host = "localhost";
 const port = 5432;
 
 
-export async function getStateData() {
-    let result: String | null = null;
+export async function getStateData(): Promise<string> {
+    let result: string | null = null;
     const client = new Client({
         user,
         host,
@@ -19,7 +19,6 @@ export async function getStateData() {
     try {
         await client.connect();
         const res = await client.query('SELECT * FROM voter_registration_deadlines;')
-        console.log('Pulled all data from table')
         result = JSON.stringify(res.rows);
     } catch (err) {
         console.error(err);
