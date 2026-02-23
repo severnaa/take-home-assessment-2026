@@ -1,4 +1,4 @@
-import DataTable from "../lib/data-table";
+import DataTable from "./data-table";
 
 const LOCAL_API = 'http://localhost:3000/api/state_data'
 

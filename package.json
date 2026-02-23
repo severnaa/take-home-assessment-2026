@@ -18,17 +18,22 @@
   "description": "",
   "dependencies": {
     "@babel/preset-env": "^7.29.0",
+    "@tailwindcss/postcss": "^4.2.0",
     "@tanstack/react-table": "^8.21.3",
     "@types/react-dom": "^19.2.3",
     "csv-parser": "^3.2.0",
+    "lucide-react": "^0.575.0",
     "next": "^15.3.4",
     "pg": "^8.16.1",
     "pg-hstore": "^2.3.4",
+    "postcss": "^8.5.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "sequelize": "^6.37.7",
     "sequelize-typescript": "^2.1.6",
     "sqlite3": "^5.1.7",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.2.0",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
