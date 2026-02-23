@@ -1,7 +1,10 @@
 import { ColumnDef, Column } from '@tanstack/react-table'
 import { ArrowUpDown } from "lucide-react";
+import { StateRegistrationData } from '../lib/types';
 
-export const columns: ColumnDef<{[x: string]: {};}, any>[] = [
+// Customized column definitions
+// This is where sorting and sepcialized components can be implemented
+export const columns: ColumnDef<StateRegistrationData, any>[] = [
     { 
         accessorKey: 'State', 
         header: ({ column }) => toggelHeader(column, 'State'), 
@@ -29,8 +32,7 @@ export const columns: ColumnDef<{[x: string]: {};}, any>[] = [
     },
     { 
         accessorKey: 'OnlineRegistrationLink', 
-        header: ({ column }) => toggelHeader(column, 'OnlineRegistrationLink'), 
-        sortingFn: 'alphanumeric' 
+        cell: ({ cell }) => {return (<a href={cell.getValue()}> Online Registration Link </a>)}
     },
     { 
         accessorKey: 'Description', 
@@ -43,13 +45,13 @@ export const columns: ColumnDef<{[x: string]: {};}, any>[] = [
   const toggelHeader = ( column: Column<any, any>, child: string ) => {
     return (
         <button
-            className="hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
             onClick={() => {
                 column.toggleSorting(column.getIsSorted() === "asc");
             }}
-            >
+        >
             { child }
-            <ArrowUpDown className="ml-2 h-4 w-4" />
+            <ArrowUpDown/>
         </button>
     );
   }
+  

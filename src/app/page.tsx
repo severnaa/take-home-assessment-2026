@@ -1,15 +1,14 @@
 import Link from 'next/link'
 
-const LOCAL_API = 'http://localhost:3000/api/state_data'
-
 export default async function Page() {
-  const response = await fetch(LOCAL_API);
-  const data = await response.text();
 
   return (
     <main>
-      <h1>HELLO</h1>
-      <Link href={'/overview'}>Voter Registration Data Overview</Link>
+      <h1>USA Voter Registration Data</h1>
+      <ul>
+        <li><Link href={'/overview'}>Voter Registration Data Overview</Link></li>
+        <li><Link href={'/state'}>Map showing off Data</Link></li>
+      </ul>
     </main>
   );
 }

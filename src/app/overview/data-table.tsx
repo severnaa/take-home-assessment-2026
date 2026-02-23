@@ -4,10 +4,12 @@ import { useReactTable, getCoreRowModel, flexRender, getFilteredRowModel, getSor
 import { useState } from 'react'
 import { columns } from './columns'
 import { Input } from '../lib/ui/input'
+import { StateRegistrationData } from '../lib/types'
 
 
-
-export default function DataTable({data}: {data: any}) {
+// Table implemented with tansttack to hold all state registration related data
+// Styling is added inline for the table
+export default function DataTable({data}: {data: StateRegistrationData[]}) {
   const [globalFilter, setGlobalFilter] = useState<any>([])
   const table = useReactTable({ 
     data, 
@@ -23,20 +25,19 @@ export default function DataTable({data}: {data: any}) {
     })
 
   return (
-    <div className="container py-10 mx-auto">
+    <div>
       <Input
         value={globalFilter || ''}
         onChange={e => table.setGlobalFilter(String(e.target.value))}
         placeholder="Search..."
-        className="max-w-sm"
       />
-      <table>
+      <table style={{width: "100%", borderCollapse: "collapse"}}>
       <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <th key={header.id} colSpan={header.colSpan} className= "h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0">
+                  <th key={header.id} colSpan={header.colSpan} style={{border: "1px solid #ddd", padding: "8px", textAlign: "left", backgroundColor: "#f2f2f2"}}>
                     {flexRender(
                           header.column.columnDef.header,
                           header.getContext(),
@@ -49,9 +50,9 @@ export default function DataTable({data}: {data: any}) {
         </thead>
         <tbody>
           {table.getRowModel().rows.map((row) => (
-            <tr key={row.id} className="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted">
+            <tr key={row.id}>
               {row.getVisibleCells().map((cell) => (
-                <td key={cell.id} className="p-4 align-middle [&:has([role=checkbox])]:pr-0">
+                <td key={cell.id} style={{border: "1px solid #ddd", padding: "8px", textAlign: "left"}}>
                   {flexRender(cell.column.columnDef.cell, cell.getContext())}
                 </td>
               ))}

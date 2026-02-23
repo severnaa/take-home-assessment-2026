@@ -18,7 +18,7 @@
   "description": "",
   "dependencies": {
     "@babel/preset-env": "^7.29.0",
-    "@tailwindcss/postcss": "^4.2.0",
+    "@mirawision/usa-map-react": "^2.0.2",
     "@tanstack/react-table": "^8.21.3",
     "@types/react-dom": "^19.2.3",
     "csv-parser": "^3.2.0",
@@ -32,8 +32,6 @@
     "sequelize": "^6.37.7",
     "sequelize-typescript": "^2.1.6",
     "sqlite3": "^5.1.7",
-    "tailwind-merge": "^3.5.0",
-    "tailwindcss": "^4.2.0",
     "typescript": "^5.8.3"
   },
   "devDependencies": {

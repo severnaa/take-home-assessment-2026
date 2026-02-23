@@ -1,12 +1,8 @@
+import stateDataClient from "../lib/state-data-client";
 import DataTable from "./data-table";
 
-const LOCAL_API = 'http://localhost:3000/api/state_data'
-
 export default async function Page() {
-    const response = await fetch(LOCAL_API);
-    const data = await response.text();
-    const parsedData = JSON.parse(data)
-
+    const parsedData= await stateDataClient()
 
     return (
         <div>
@@ -15,8 +11,3 @@ export default async function Page() {
         </div>
     );
   }
-
-
-
-
-
